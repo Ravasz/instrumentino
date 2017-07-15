@@ -4,7 +4,7 @@ from instrumentino import cfg
 from instrumentino.action import SysAction, SysActionParamTime, SysActionParamFloat, SysActionParamInt
 from instrumentino.controllers.arduino import SysVarDigitalArduino, SysVarAnalogArduinoUnipolar
 from instrumentino.controllers.arduino.pins import DigitalPins, AnalogPins
- 
+
 '''
 *** System constants
 '''
@@ -20,7 +20,7 @@ pinPwmOutB = 10
 '''
 analPins = AnalogPins('analog pins', (SysVarAnalogArduinoUnipolar('A', (0,5), pinAnalInA, pinPwmOutA, 'analPins', units='volts'),
                                       SysVarAnalogArduinoUnipolar('B', (0,5), pinAnalInB, pinPwmOutB, 'analPins', units='volts')))
- 
+
 '''
 *** System actions
 '''
@@ -30,12 +30,12 @@ class SysActionSetPins(SysAction):
         self.pinA = SysActionParamFloat(analPins.vars['A'])
         self.pinB = SysActionParamFloat(analPins.vars['B'])
         SysAction.__init__(self, 'Set pins', (self.seconds, self.pinA, self.pinB))
- 
+
     def Command(self):
         # Set pins
         analPins.vars['A'].Set(self.pinA.Get())
         analPins.vars['B'].Set(self.pinB.Get())
-         
+
         # Wait some time
         cfg.Sleep(self.seconds.Get())
 
@@ -54,12 +54,12 @@ class System(Instrument):
         name = 'Arduino simple example'
         description = 'A simple example using only an Arduino. Analog pins 1,2 should be connected to PWM pins 9,10 respectively, through a low-pass filter.'
         version = '1.0'
-         
+
         Instrument.__init__(self, comps, actions, version, name, description)
- 
+
 '''
 *** Run program
-'''        
+'''
 if __name__ == '__main__':
     # run the program
     System()
