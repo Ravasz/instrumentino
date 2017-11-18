@@ -1,4 +1,3 @@
-README.txt
 setup.py
 instrumentino/__init__.py
 instrumentino/action.py
@@ -17,6 +16,7 @@ instrumentino.egg-info/top_level.txt
 instrumentino.egg-info/zip-safe
 instrumentino/controllers/__init__.py
 instrumentino/controllers/arduino/__init__.py
+instrumentino/controllers/arduino/dac.py
 instrumentino/controllers/arduino/edaq.py
 instrumentino/controllers/arduino/emco.py
 instrumentino/controllers/arduino/hvm.py
