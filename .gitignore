@@ -46,3 +46,7 @@ controlino/.project
 documents/example_run_ArduinoPins.py/log/*
 
 documents/example_run_container.py/log/*
+
+documents/example_run_ArduinoPins.py/logfile*
+documents/example_run_ArduinoPins.py/y
+
